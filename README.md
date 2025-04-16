@@ -26,6 +26,32 @@ the function and run automatically when you commit through a GitHub action.
 What is the worst-case big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
 
+The worst case would be a connected graph that needs to search the whole graph to find the target node
+1.  starting at the start node, while unvisited nodes remain
+    2.  if current vertex  v  is the node we're looking for, return it. $\Theta(1)$
+	    1. mark v as visited and push it onto the path. $\Theta(1)$
+	    2. for each edge  (v,w): This has a complexity of $\Theta(|E|)$ since each edge will 
+		    be processed once
+		    1. If not visited, recursively process w. This has a complexity of  $\Theta(|V|)$ 
+			   since each vertex will be visited at least once.
+	3. if all nodes on a path are visited, backtrack $\Theta(1)$
+
+
+Runtime equation:
+$T(n) = 1 \cdot (1 + (|E||V|)) + 1$
+
+$= |E||V| + 2$
+
+The constant factor is asymptotically insignificant, therefore
+
+$T(n)\in\Theta(|E||V|)$
+
 ## Bonus
 
 Implement and analyze breadth-first search.
+
+"I certify that I have listed all sources used to complete this exercise,
+including the use of any Large Language Models. All of the work is my own, except
+where stated otherwise. I am aware that plagiarism carries severe penalties and
+that if plagiarism is suspected, charges may be filed against me without prior
+notice."
