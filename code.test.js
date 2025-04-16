@@ -1,10 +1,11 @@
-//Maya Conway
-//code.test.js
-//Graph Search Unit Tests
-//4-14-25
+// Maya Conway
+// code.test.js
+// Graph Search Unit Tests using node's assert
+// 4-16-25
 
+const assert = require('assert');
 const fs = require('fs');
-eval(fs.readFileSync('code.js')+'');
+eval(fs.readFileSync('code.js') + '');
 
 function dfsTests() {
     //normal acyclic directed graph
@@ -39,11 +40,9 @@ function dfsTests() {
         D: [],
     };
 
-    console.log("Acyclic from A to E:", depthFirstSearch(acyclicGraph, 'A', 'E')); // ['A', 'B', 'D', 'C', 'E']
-    console.log("Cyclic from A to C", depthFirstSearch(cyclicGraph, 'A', 'C')); // ['A', 'B', 'C']
-    console.log("Self Cyclic from A to C", depthFirstSearch(selfCycleGraph, 'A', 'C')); //['A', 'B', 'C']
-    console.log("Disconnected from A to D:", depthFirstSearch(disconnectedGraph, 'A', 'D')); // []
-
+    assert.deepEqual(depthFirstSearch(acyclicGraph, 'A', 'E'), ['A', 'B', 'D', 'C', 'E'], 'Acyclic from A to E failed');
+    assert.deepEqual(depthFirstSearch(cyclicGraph, 'A', 'C'), ['A', 'B', 'C'], 'Cyclic from A to C failed');
+    assert.deepEqual(depthFirstSearch(selfCycleGraph, 'A', 'C'), ['A', 'B', 'C'], 'Self Cyclic from A to C failed');
+    assert.deepEqual(depthFirstSearch(disconnectedGraph, 'A', 'D'), [], 'Disconnected from A to D failed');
 }
 dfsTests();
-
