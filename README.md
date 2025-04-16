@@ -28,19 +28,18 @@ answer, including your reasoning, to this markdown file.
 
 The worst case would be a connected graph that needs to search the whole graph to find the target node
 1.  starting at the start node, while unvisited nodes remain
-    2.  if current vertex  v  is the node we're looking for, return it. $\Theta(1)$
-	    1. mark v as visited and push it onto the path. $\Theta(1)$
-	    2. for each edge  (v,w): This has a complexity of $\Theta(|E|)$ since each edge will 
-		    be processed once
-		    1. If not visited, recursively process w. This has a complexity of  $\Theta(|V|)$ 
-			   since each vertex will be visited at least once.
-	3. if all nodes on a path are visited, backtrack $\Theta(1)$
+	1.  if current vertex  v  is the node we're looking for, return it. $\Theta(1)$  
+	2. mark v as visited and push it onto the path. $\Theta(1)$
+	3. for each edge  (v,w): This has a complexity of $\Theta(|E|)$ since each edge will be processed once
+		1. If not visited, recursively process w. This has a complexity of  $\Theta(|V|)$ since each vertex will be visited at least once.
+	4. if all nodes on a path are visited, backtrack. $\Theta(1)$
 
 
 Runtime equation:
-$T(n) = 1 \cdot (1 + (|E||V|)) + 1$
 
-$= |E||V| + 2$
+$T(n) = 1 + 1 + (|E||V|) + 1$
+
+$= |E||V| + 3$
 
 The constant factor is asymptotically insignificant, therefore
 
