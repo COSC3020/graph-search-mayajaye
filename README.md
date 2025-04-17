@@ -21,7 +21,7 @@ I have not provided any test code, but you can base yours on test code from
 other exercises. Your tests must check the correctness of the result of running
 the function and run automatically when you commit through a GitHub action.
 
-## Runtime Analysis
+#### Runtime of this Depth-First Search: $T(n)\in\Theta(|E|+|V|)$
 
 What is the worst-case big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
@@ -30,20 +30,20 @@ The worst case would be a connected graph that needs to search the whole graph t
 1.  starting at the start node, while unvisited nodes remain
 	1.  if current vertex  v  is the node we're looking for, return it. $\Theta(1)$  
 	2. mark v as visited and push it onto the path. $\Theta(1)$
-	3. for each edge  (v,w): This has a complexity of $\Theta(|E|)$ since each edge will be processed once
+	3. for each edge  (v,w): This has a complexity of $\Theta(|E|)$ since each edge will be processed once overall
 		1. If not visited, recursively process w. This has a complexity of  $\Theta(|V|)$ since each vertex will be visited at least once.
 	4. if all nodes on a path are visited, backtrack. $\Theta(1)$
 
 
-Runtime equation:
+Since each edge will be visited once and each vertex will be visited once, the runtime equation is:
 
-$T(n) = 1 + 1 + (|E||V|) + 1$
+$T(n) = 1 \cdot (1 + |E| + |V|) + 1$
 
-$= |E||V| + 3$
+$= |E|+ |V| + 2$
 
 The constant factor is asymptotically insignificant, therefore
 
-$T(n)\in\Theta(|E||V|)$
+$T(n)\in\Theta(|E|+|V|)$
 
 ## Bonus
 
